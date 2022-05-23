@@ -45,9 +45,9 @@ public class InventoryController {
 		return inventoryService.findInventoryByName(itemName);
 	}
 
-	@PutMapping
-	public @ResponseBody Inventory updateItem(@RequestBody Inventory item) {
-		return inventoryService.updateInventory(item.getId(), item.getName(), item.getStock());
+	@PutMapping("/{id}")
+	public @ResponseBody Inventory updateItem(@PathVariable Long id, @RequestBody Inventory item) {
+		return inventoryService.updateInventory(id, item.getName(), item.getStock());
 	}
 
 	@DeleteMapping("/{id}")
